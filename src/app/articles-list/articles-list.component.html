@@ -1,0 +1,33 @@
+<h2>{{title}}</h2>
+<div class="search-bar">
+    <input type="text" placeholder="Rechercher un article" #search/>
+    <button  class="btn btn-outline-primary" (click)="filtrerArticle(search.value)" >rechercher</button>
+</div>
+@if (action === "add") {
+  <app-ajout-article [lastId]="Articles[Articles.length - 1].id" 
+  (articleCreated)="addArticle($event)">
+  </app-ajout-article>
+  
+}
+@for (article of TriArticles(); track $index) {
+    <div class="card">
+        <div class="row no-gutters align-items-center">
+          <div class="col-md-4">
+            <img src="{{ article.photo }}" class="card-img" style="height: 100px; width: 100px;" />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h6 >{{ article.id }}</h6>
+              <h5 > Titre : {{ article.titre }}</h5>
+              <h5>Date : {{ article.date }}</h5>
+              <h5 > Description : {{ article.description }}</h5>
+              <h5> Score : {{ article.score}}</h5>
+              <button class="btn btn-outline-primary " (click)="add(article)">up</button>
+              <button  class="btn btn-outline-primary " (click)="remove(article)">down</button>
+            </div>
+          </div>
+        </div>
+      </div>  
+
+}
+<button  class="btn btn-outline-primary mb-3" (click)="changeAction('add')">Ajouter un article</button>   

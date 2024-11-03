@@ -1,0 +1,29 @@
+<h2>Ajout d'un nouveau article :</h2>
+<form id="addForm">
+    <div class="mb-3">
+      <label for="titre" class="form-label">Titre</label>
+      <input type="text" class="form-control" id="title" #title/>
+    </div>
+    <div class="mb-3">
+      <label for="photo" class="form-label">photo</label>
+      <input type="text" class="form-control" id="photo" #photo/>
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">description</label>
+        <input type="text" class="form-control" id="description" #description />
+      </div>
+      <div class="mb-3">
+        <label for="date" class="form-label">date</label>
+        <input type="text" class="form-control" id="date" #date />
+      </div>
+
+      <div class="mb-3">
+        <label for="score" class="form-label">score</label>
+        <input type="number" class="form-control" id="score" #score />
+      </div>
+    <button 
+        type="button" 
+        id="btnValidAdd" 
+        class="btn btn-primary" 
+        (click)="addArticle(title.value,photo.value,description.value,date.value,+score.value)">Valider</button>
+  </form>
